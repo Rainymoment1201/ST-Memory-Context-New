@@ -35,7 +35,7 @@
     const CWK = 'gg_col_widths';       // 列宽存储键
     const SMK = 'gg_summarized';       // 已总结行标记存储键
     const UIK = 'gg_user_info';        // 【关于我】全局存储键
-    const REPO_PATH = 'gaigai315/ST-Memory-Context';  // GitHub仓库路径
+    const REPO_PATH = 'Rainymoment1201/ST-Memory-Context-New';  // GitHub仓库路径
 
     // ===== UI主题配置 =====
     let UI = { c: '#dfdcdcff', bc: '#ffffff', tc: '#000000ff', darkMode: false };
