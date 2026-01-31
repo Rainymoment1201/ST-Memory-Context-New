@@ -11487,13 +11487,13 @@ updateRow(1, 0, {4: "王五销毁了图纸..."})
             const src = scripts[i].getAttribute('src');
             if (!src) continue;
 
-            // 只要路径包含插件文件夹名，就认为是它
-            if (src.includes('ST-Memory-Context/index.js')) {
+            // 🔄 改进：匹配任何包含 ST-Memory-Context 的文件夹（包括 -New 后缀）
+            if (src.match(/ST-Memory-Context[^\/]*\/index\.js/i)) {
                 return src.replace(/\/index\.js$/i, '').replace(/\\index\.js$/i, '');
             }
         }
 
-        console.error('❌ [Gaigai] 无法定位插件路径，依赖加载将失败！请检查文件夹名称是否为 ST-Memory-Context');
+        console.error('❌ [Gaigai] 无法定位插件路径，依赖加载将失败！请检查文件夹名称是否包含 ST-Memory-Context');
         return '';
     }
 
@@ -11607,7 +11607,7 @@ updateRow(1, 0, {4: "王五销毁了图纸..."})
                             });
                     })
                     .fail(function (jqxhr, settings, exception) {
-                        console.error('❌ [Loader] prompt_manager.js 加载失败！请检查文件夹名称是否为 ST-Memory-Context');
+                        console.error('❌ [Loader] prompt_manager.js 加载失败！');
                         console.error(`📍 尝试加载的 URL: ${promptManagerUrl}`);
                         console.error(`📍 HTTP 状态码: ${jqxhr.status}`);
                         console.error(`📍 错误详情:`, exception);
